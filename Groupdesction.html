@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: url("firefilesgif.gif") no-repeat;
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: aqua;
+        }
+
+        h2 {
+            color: skyblue;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .btn.active {
+            background-color: #007BFF;
+        }
+        a {
+         text-decoration: none;
+         color: black;
+        }
+
+        .column {
+            display: none;
+        }
+
+        .column.show {
+            display: block;
+        }
+
+        .content {
+            margin: 20px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <h1>GROUP DISCUSSION</h1>
+    <hr>
+    <h2>Topics</h2>
+
+    <div id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')">Show All</button>
+        <button class="btn" onclick="filterSelection('social')">Social Problem</button>
+        <button class="btn" onclick="filterSelection('education')">Education</button>
+        <button class="btn" onclick="filterSelection('sports')">Sports</button>
+        <button class="btn" onclick="filterSelection('politics')">Politics</button>
+        <button class="btn" onclick="filterSelection('new topics')">New Topics</button>
+        <button class="btn" onclick="filterSelection('current topics')">Current Topics</button>
+    </div>
+
+    <!-- Portfolio Gallery Grid -->
+    <div class="column cars show">
+        <div class="content">
+            <img src="social.jpg" alt="social">
+            <h4>Social Topics</h4>
+            <button class="btn active"><a href="sociallink.html">Click</a></button>
+        </div>
+    </div>
+
+    <div class="column cars">
+        <div class="content">
+            <img src="education.gif" alt="education">
+            <h4>Education</h4>
+            <button class="btn"><a href="educationlink.html">Click</a></button>
+        </div>
+    </div>
+
+    <div class="column cars">
+        <div class="content">
+            <img src="politics.gif" alt="politics">
+            <h4>Politics</h4>
+            <button class="btn"><a href="politics click.html">Click</a></button>
+        </div>
+    </div>
+
+    <div class="column cars">
+        <div class="content">
+            <img src="current.gif" alt="current topics">
+            <h4>Current Topics</h4>
+            <button class="btn"><a href="currentopic.html">Click</a></button>
+        </div>
+    </div>
+
+    <div class="column cars">
+        <div class="content">
+            <img src="new.gif" alt="new topic">
+            <h4>New Topic</h4>
+            <button class="btn"><a href="newtopic.html">Click</a></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    filterSelection("all");
+
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("column");
+        if (c === "all") {
+            for (i = 0; i < x.length; i++) {
+                x[i].classList.add("show");
+            }
+        } else {
+            for (i = 0; i < x.length; i++) {
+                if (x[i].id === c + 'Div') {
+                    x[i].classList.add("show");
+                } else {
+                    x[i].classList.remove("show");
+                }
+            }
+        }
+    }
+
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.querySelector(".btn.active");
+            current.classList.remove("active");
+            this.classList.add("active");
+        });
+    }
+</script>
+
+</body>
+</html>
